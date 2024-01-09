@@ -1,0 +1,33 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #edeff0;
+    
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    line-gap-override: 30px;
+  }
+  h1 {
+    color: #c01818;
+  }  
+  button {
+    padding: 8px 12px;
+    background-color: #c01818;
+    color: #f8f2f2;
+    border: none;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  input {
+    padding: 8px;
+    margin-bottom: 10px;
+  }
