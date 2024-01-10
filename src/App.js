@@ -1,13 +1,39 @@
-// App.js
-import React from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+// src/App.js
+import React, { useState } from 'react';
+import { CartProvider } from './Componenets/CartContext';
+import { OrderProvider } from './Componenets/OrderContext';
 import Marketplace from './Componenets/Marketplace';
+import Order from './Componenets/Order';
 
 const App = () => {
+  const [page, setPage] = useState('marketplace');
+
+  const navigateTo = (pageName) => {
+    setPage(pageName);
+  };
+
   return (
-    <div align="center">
-      <Marketplace />
-    </div>
+    <CartProvider>
+      <OrderProvider>
+        <div>
+          <nav>
+            <ul>
+              <li>
+                <button onClick={() => navigateTo('marketplace')}>Marketplace</button>
+              </li>
+              <li>
+                <button onClick={() => navigateTo('order')}>Place Order</button>
+              </li>
+            </ul>
+          </nav>
+
+          <hr />
+
+          {page === 'marketplace' && <Marketplace />}
+          {page === 'order' && <Order />}
+        </div>
+      </OrderProvider>
+    </CartProvider>
   );
 };
 
